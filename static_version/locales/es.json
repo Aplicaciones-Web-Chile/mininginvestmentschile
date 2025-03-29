@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "services": "Servicios",
+    "projects": "Proyectos",
+    "about": "Nosotros",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Inversión minera con visión global",
+    "subtitle": "Más de 10 años conectando proyectos mineros con inversionistas internacionales",
+    "cta": "Ver Proyectos Disponibles"
+  },
+  "services": {
+    "title": "¿Qué ofrecemos?",
+    "service1": "Revisión y evaluación de proyectos mineros",
+    "service2": "Gestión de proyectos e ingeniería",
+    "service3": "Sistemas de protección contra incendios",
+    "service4": "Formación laboral y seguridad minera",
+    "service5": "Corretaje y asesoría a inversionistas en la compra de yacimientos"
+  },
+  "projects": {
+    "title": "Proyectos Disponibles",
+    "requestInfo": "Solicitar Información",
+    "project1": {
+      "title": "Proyecto Cobre-Oro-Plata – Río Hurtado",
+      "reserves": "Reservas estimadas: ~34 millones de toneladas",
+      "certification": "Certificación NI 43-101",
+      "price": "USD 30,000,000"
+    },
+    "project2": {
+      "title": "Proyecto Oro-Cobre-Plata – Petorca",
+      "area": "700 ha mineras constituidas",
+      "reserves": "Reservas: 38.000 ton determinadas, 107.000 ton inferidas",
+      "price": "USD 3,000,000"
+    }
+  },
+  "about": {
+    "title": "Sobre Nosotros",
+    "content": "Meza & Pierre ha estado presente en la industria minera por más de una década. Nuestro equipo trilingüe (ES-FR-EN) ofrece servicios de corretaje, evaluación de yacimientos y asesoría estratégica."
+  },
+  "contact": {
+    "title": "¿Interesado en invertir o conocer más de nuestros proyectos?",
+    "subtitle": "Contáctanos para recibir la carpeta de yacimientos.",
+    "name": "Nombre",
+    "email": "Correo",
+    "message": "Mensaje",
+    "submit": "Enviar Mensaje",
+    "schedule": "Programar Reunión",
+    "success": "¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.",
+    "error": "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo."
+  },
+  "footer": {
+    "disclaimer": "La información contenida en este sitio es referencial y sujeta a confirmación en reunión con Meza & Pierre. No se divulga la dirección exacta de las minas.",
+    "copyright": "© Meza & Pierre. Todos los derechos reservados."
+  }
+}

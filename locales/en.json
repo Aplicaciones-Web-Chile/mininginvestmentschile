@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "services": "Services",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Mining Investment with a Global Vision",
+    "subtitle": "Over 10 years connecting mining projects with international investors.",
+    "cta": "View Available Projects"
+  },
+  "services": {
+    "title": "What We Offer",
+    "service1": "Review and evaluation of mining projects",
+    "service2": "Project management and engineering",
+    "service3": "Fire protection systems",
+    "service4": "Labor training and mining safety",
+    "service5": "Brokerage and advisory for investors seeking to buy deposits"
+  },
+  "projects": {
+    "title": "Available Projects",
+    "requestInfo": "Request Information",
+    "project1": {
+      "title": "Copper-Gold-Silver Project – Río Hurtado",
+      "reserves": "Estimated reserves: ~34 million tons",
+      "certification": "NI 43-101 Certification",
+      "price": "USD 30,000,000"
+    },
+    "project2": {
+      "title": "Gold-Copper-Silver Project – Petorca",
+      "area": "700 hectares, legally constituted",
+      "reserves": "Reserves: 38,000 ton proven, 107,000 ton inferred",
+      "price": "USD 3,000,000"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "content": "Meza & Pierre has been active in the mining industry for over a decade. Our trilingual team (ES-FR-EN) provides brokerage services, deposit evaluations, and strategic advisory."
+  },
+  "contact": {
+    "title": "Interested in investing or learning more about our projects?",
+    "subtitle": "Contact us to receive our full deposit portfolio.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send Message",
+    "schedule": "Schedule a Meeting",
+    "success": "Message sent successfully! We will be in touch soon.",
+    "error": "There was an error sending your message. Please try again."
+  },
+  "footer": {
+    "disclaimer": "Information contained on this site is referential and subject to confirmation in a meeting with Meza & Pierre. Exact mine locations are not disclosed.",
+    "copyright": "© Meza & Pierre. All Rights Reserved."
+  }
+}

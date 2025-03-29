@@ -1,0 +1,151 @@
+:root {
+  --color-dark: #0f172a;
+  --color-dark-light: #1e293b;
+  --color-primary: #f59e0b;
+  --color-secondary: #fbbf24;
+  --color-white: #ffffff;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  margin: 0;
+  padding: 0;
+}
+
+.bg-dark {
+  background-color: var(--color-dark);
+}
+
+.bg-dark-light {
+  background-color: var(--color-dark-light);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-white {
+  color: var(--color-white);
+}
+
+.text-white\/80 {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.text-white\/60 {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-primary\/10 {
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.text-dark {
+  color: var(--color-dark);
+}
+
+.border-primary\/20 {
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.border-primary\/40 {
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.hover\:bg-primary\/20:hover {
+  background-color: rgba(245, 158, 11, 0.2);
+}
+
+.hover\:bg-secondary:hover {
+  background-color: var(--color-secondary);
+}
+
+.hover\:text-primary:hover {
+  color: var(--color-primary);
+}
+
+.hover\:text-white:hover {
+  color: var(--color-white);
+}
+
+.hover\:border-primary\/40:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.transition-colors {
+  transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+/* Animaciones */
+.animate-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Formulario */
+.form-success {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+.form-error {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header nav .flex.items-center.gap-8 {
+    display: none;
+  }
+  
+  header nav {
+    position: relative;
+  }
+  
+  .mobile-menu-button {
+    display: block;
+  }
+  
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-dark);
+    padding: 1rem;
+    border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+  }
+  
+  .mobile-menu a {
+    padding: 0.75rem 0;
+  }
+}

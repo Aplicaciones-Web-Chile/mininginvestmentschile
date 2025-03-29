@@ -1,0 +1,21 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Respaldo de la versión React
+backup_react_version/
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Archivos de configuración local
+.env
+
+# Carpetas de dependencias
+node_modules/
+vendor/
+
+# Archivos de caché
+.cache/
+.sass-cache/

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meza & Pierre - Mining Investment</title>
+  <link rel="icon" type="image/svg+xml" href="img/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="css/tailwind.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-white">
+  <!-- Header -->
+  <header class="fixed w-full bg-dark/90 backdrop-blur-sm z-50">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <img src="img/logo.png" alt="Meza & Pierre" class="h-12">
+        <h1 class="text-2xl font-bold text-primary">Meza & Pierre</h1>
+      </div>
+      <div class="flex items-center gap-8">
+        <a href="#services" class="hover:text-primary transition-colors" data-i18n="nav.services">Servicios</a>
+        <a href="#projects" class="hover:text-primary transition-colors" data-i18n="nav.projects">Proyectos</a>
+        <a href="#about" class="hover:text-primary transition-colors" data-i18n="nav.about">Nosotros</a>
+        <a href="#contact" class="hover:text-primary transition-colors" data-i18n="nav.contact">Contacto</a>
+        <button id="language-switch" class="flex items-center gap-2 px-4 py-2 text-white/80 hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-globe">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span class="font-medium" id="current-lang">ES</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative h-screen flex items-center justify-center text-center animate-section" id="hero"
+    style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/pexels-apasaric-1238864.jpg); background-size: cover; background-position: center">
+    <div class="max-w-4xl mx-auto px-6">
+      <h1 class="text-5xl font-bold mb-6" data-i18n="hero.title">Inversión minera con visión global</h1>
+      <p class="text-xl text-white/80 mb-8" data-i18n="hero.subtitle">Más de 10 años conectando proyectos mineros con inversionistas internacionales</p>
+      <a href="#projects" 
+        class="inline-flex items-center gap-2 px-8 py-3 bg-primary text-dark font-semibold rounded-lg hover:bg-secondary transition-colors">
+        <span data-i18n="hero.cta">Ver Proyectos Disponibles</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-chevron-down">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-dark-light animate-section">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-16" data-i18n="services.title">¿Qué ofrecemos?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-grid">
+        <!-- Services will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 animate-section">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-16" data-i18n="projects.title">Proyectos Disponibles</h2>
+      <div class="grid md:grid-cols-2 gap-8" id="projects-grid">
+        <!-- Projects will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-dark-light animate-section">
+    <div class="container mx-auto px-6 max-w-3xl text-center">
+      <h2 class="text-3xl font-bold mb-8" data-i18n="about.title">Sobre Nosotros</h2>
+      <p class="text-lg text-white/80" data-i18n="about.content">Meza & Pierre ha estado presente en la industria minera por más de una década. Nuestro equipo trilingüe (ES-FR-EN) ofrece servicios de corretaje, evaluación de yacimientos y asesoría estratégica.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 animate-section">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-4" data-i18n="contact.title">¿Interesado en invertir o conocer más de nuestros proyectos?</h2>
+      <p class="text-center text-white/80 mb-12" data-i18n="contact.subtitle">Contáctanos para recibir la carpeta de yacimientos.</p>
+      
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="space-y-6">
+          <div class="flex items-center gap-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+            <a href="mailto:patrice@mininginvestmentschile.com" class="hover:text-primary transition-colors">
+              patrice@mininginvestmentschile.com
+            </a>
+          </div>
+          <div class="flex items-center gap-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <a href="tel:+56987605326" class="hover:text-primary transition-colors">
+              +56 9 8760 5326
+            </a>
+          </div>
+          <div class="flex items-center gap-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <button class="hover:text-primary transition-colors" data-i18n="contact.schedule">
+              Programar Reunión
+            </button>
+          </div>
+          <div class="flex items-center gap-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Santiago, Chile</span>
+          </div>
+        </div>
+
+        <form id="contact-form" action="php/contact.php" method="POST" class="space-y-6">
+          <input
+            type="text"
+            name="name"
+            placeholder="Nombre"
+            data-i18n-placeholder="contact.name"
+            class="w-full p-3 bg-dark-light border border-primary/20 rounded-lg focus:border-primary outline-none"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Correo"
+            data-i18n-placeholder="contact.email"
+            class="w-full p-3 bg-dark-light border border-primary/20 rounded-lg focus:border-primary outline-none"
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="Mensaje"
+            data-i18n-placeholder="contact.message"
+            rows="4"
+            class="w-full p-3 bg-dark-light border border-primary/20 rounded-lg focus:border-primary outline-none"
+            required
+          ></textarea>
+          <button
+            type="submit"
+            class="w-full py-3 bg-primary text-dark font-semibold rounded-lg hover:bg-secondary transition-colors"
+            data-i18n="contact.submit"
+          >
+            Enviar Mensaje
+          </button>
+          <div id="form-message" class="hidden"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-dark-light border-t border-primary/20">
+    <div class="container mx-auto px-6 text-center">
+      <p class="text-white/60 max-w-2xl mx-auto mb-4 text-sm" data-i18n="footer.disclaimer">La información contenida en este sitio es referencial y sujeta a confirmación en reunión con Meza & Pierre. No se divulga la dirección exacta de las minas.</p>
+      <p class="text-white/80 mb-2" data-i18n="footer.copyright">© Meza & Pierre. Todos los derechos reservados.</p>
+      <p class="text-white/60 text-sm">
+        Desarrollado por <a href="http://www.aplicacionesweb.cl" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary transition-colors">AplicacionesWeb</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/tailwind.min.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
