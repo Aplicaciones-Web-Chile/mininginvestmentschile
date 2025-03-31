@@ -235,6 +235,18 @@ class LanguageManager {
     setTimeout(() => {
       const projectElements = projectsGrid.querySelectorAll('.animate-section');
       window.animateWithDelay(projectElements, 200);
+      
+      // Reinicializar las galerías y sus listeners después de actualizar los proyectos
+      // Esto es crucial para que las imágenes sean clickeables después de cambiar el idioma
+      console.log('Llamando a reinitializeGalleryListeners desde language.js');
+      if (typeof reinitializeGalleryListeners === 'function') {
+        // Dar un poco de tiempo para que el DOM se estabilice
+        setTimeout(() => {
+          reinitializeGalleryListeners();
+        }, 100);
+      } else {
+        console.error('La función reinitializeGalleryListeners no está disponible. Asegúrate de que gallery.js se carga antes que language.js');
+      }
     }, 300);
   }
 }
