@@ -114,6 +114,16 @@ class LanguageManager {
   updateProjects() {
     const projectsGrid = document.getElementById('projects-grid');
     if (!projectsGrid) return;
+    
+    // Guardar referencias a las miniaturas existentes antes de limpiar
+    const existingThumbnails = {};
+    document.querySelectorAll('.gallery-thumbnails').forEach(thumbnails => {
+      const galleryId = thumbnails.getAttribute('data-gallery');
+      if (galleryId) {
+        existingThumbnails[galleryId] = thumbnails.cloneNode(true);
+        console.log(`Guardando miniaturas para galería ${galleryId}`);
+      }
+    });
 
     // Limpiar contenido existente
     projectsGrid.innerHTML = '';
@@ -219,15 +229,39 @@ class LanguageManager {
             </div>
             <div class="mt-4">
               <p class="text-primary font-semibold text-lg mb-4">${projectPrice}</p>
-              <button class="w-full py-2 px-4 bg-primary/10 text-primary border border-primary/20 rounded hover:bg-primary/20 transition-colors">
-                ${requestInfo}
-              </button>
+              <div class="flex flex-col space-y-2">
+                <button class="w-full py-2 px-4 bg-primary/10 text-primary border border-primary/20 rounded hover:bg-primary/20 transition-colors request-info-btn" data-project="${projectTitle}">
+                  ${requestInfo}
+                </button>
+                <a href="https://wa.me/56987605326?text=Hola,%20me%20interesa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20${encodeURIComponent(projectTitle)}" target="_blank" class="flex items-center justify-center py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                    <path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm0 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20z"/>
+                  </svg>
+                  WhatsApp
+                </a>
+              </div>
             </div>
           </div>
         `;
         
         projectDiv.innerHTML = projectHTML;
         projectsGrid.appendChild(projectDiv);
+        
+        // Restaurar las miniaturas si existían previamente
+        if (projectId && existingThumbnails[projectId]) {
+          const projectContainer = projectDiv.querySelector('.flex-col');
+          if (projectContainer) {
+            // Buscar el último div (botón) para insertar antes de él
+            const lastDiv = projectContainer.querySelector('.mt-4');
+            if (lastDiv) {
+              projectContainer.insertBefore(existingThumbnails[projectId], lastDiv);
+            } else {
+              projectContainer.appendChild(existingThumbnails[projectId]);
+            }
+            console.log(`Restauradas miniaturas para proyecto ${i} (${projectId})`);
+          }
+        }
       }
     }
 
@@ -235,6 +269,37 @@ class LanguageManager {
     setTimeout(() => {
       const projectElements = projectsGrid.querySelectorAll('.animate-section');
       window.animateWithDelay(projectElements, 200);
+      
+      // Añadir funcionalidad a los botones de solicitar información
+      document.querySelectorAll('.request-info-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+          const projectName = button.getAttribute('data-project');
+          const contactSection = document.getElementById('contact');
+          
+          // Desplazarse a la sección de contacto
+          if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+            
+            // Si hay un campo de asunto, prellenarlo
+            const subjectField = document.querySelector('input[name="subject"], textarea[name="subject"]');
+            if (subjectField) {
+              subjectField.value = `Solicitud de información: ${projectName}`;
+            }
+            
+            // Si hay un campo de mensaje, añadir texto predeterminado
+            const messageField = document.querySelector('textarea[name="message"]');
+            if (messageField) {
+              messageField.value = `Hola, me gustaría recibir más información sobre el proyecto ${projectName}.`;
+            }
+            
+            // Enfocar el primer campo del formulario
+            const firstInput = contactSection.querySelector('input, textarea');
+            if (firstInput) {
+              setTimeout(() => firstInput.focus(), 800);
+            }
+          }
+        });
+      });
       
       // Reinicializar las galerías y sus listeners después de actualizar los proyectos
       // Esto es crucial para que las imágenes sean clickeables después de cambiar el idioma
