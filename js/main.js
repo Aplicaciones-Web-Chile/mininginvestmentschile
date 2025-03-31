@@ -80,43 +80,61 @@ function setupContactForm() {
  * Configura el menú móvil
  */
 function setupMobileMenu() {
-  const header = document.querySelector('header nav');
-  if (!header) return;
+  console.log('Configurando menú móvil...');
   
-  // Crear botón de menú móvil
-  const mobileMenuButton = document.createElement('button');
-  mobileMenuButton.className = 'mobile-menu-button block md:hidden';
-  mobileMenuButton.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="3" y1="12" x2="21" y2="12"></line>
-      <line x1="3" y1="6" x2="21" y2="6"></line>
-      <line x1="3" y1="18" x2="21" y2="18"></line>
-    </svg>
-  `;
+  // Obtener elementos del menú móvil
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
   
-  header.appendChild(mobileMenuButton);
+  if (!mobileMenuButton) {
+    console.error('No se encontró el botón del menú móvil');
+    return;
+  }
   
-  // Clonar los enlaces de navegación para el menú móvil
-  const navLinks = header.querySelector('.flex.items-center.gap-8');
-  if (!navLinks) return;
+  if (!mobileMenu) {
+    console.error('No se encontró el contenedor del menú móvil');
+    return;
+  }
   
-  const mobileMenu = document.createElement('div');
-  mobileMenu.className = 'mobile-menu hidden';
-  mobileMenu.innerHTML = navLinks.innerHTML;
+  console.log('Menú móvil encontrado, configurando eventos...');
   
-  header.appendChild(mobileMenu);
-  
-  // Alternar la visibilidad del menú móvil
-  mobileMenuButton.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
+  // Alternar la visibilidad del menú móvil al hacer clic en el botón
+  mobileMenuButton.addEventListener('click', function() {
+    console.log('Clic en botón de menú móvil');
+    if (mobileMenu.classList.contains('hidden')) {
+      mobileMenu.classList.remove('hidden');
+      console.log('Menú móvil mostrado');
+    } else {
+      mobileMenu.classList.add('hidden');
+      console.log('Menú móvil ocultado');
+    }
   });
   
-  // Cerrar el menú móvil al hacer clic en un enlace
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
+  // Cerrar el menú móvil al hacer clic en cualquier enlace
+  const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+  mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      console.log('Clic en enlace del menú móvil');
       mobileMenu.classList.add('hidden');
     });
   });
+  
+  // Configurar el cambio de idioma en el menú móvil
+  const languageSwitchMobile = document.getElementById('language-switch-mobile');
+  if (languageSwitchMobile) {
+    languageSwitchMobile.addEventListener('click', function() {
+      if (window.languageManager) {
+        window.languageManager.toggleLanguage();
+        const currentLangMobile = document.getElementById('current-lang-mobile');
+        if (currentLangMobile) {
+          currentLangMobile.textContent = window.languageManager.currentLanguage.toUpperCase();
+        }
+      }
+      mobileMenu.classList.add('hidden');
+    });
+  }
+  
+  console.log('Configuración del menú móvil completada');
 }
 
 /**

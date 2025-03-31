@@ -17,12 +17,23 @@
 <body class="bg-dark text-white">
   <!-- Header -->
   <header class="fixed w-full bg-dark/90 backdrop-blur-sm z-50">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center relative">
       <div class="flex items-center gap-4">
         <img src="img/logo.png" alt="Meza & Pierre" class="h-12">
         <h1 class="text-2xl font-bold text-primary">Meza & Pierre</h1>
       </div>
-      <div class="flex items-center gap-8">
+      
+      <!-- Botón de menú móvil -->
+      <button id="mobile-menu-button" class="block md:hidden absolute right-6 top-1/2 transform -translate-y-1/2 z-20">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      
+      <!-- Menú de navegación para escritorio -->
+      <div class="hidden md:flex items-center gap-8" id="desktop-menu">
         <a href="#services" class="hover:text-primary transition-colors" data-i18n="nav.services">Servicios</a>
         <a href="#projects" class="hover:text-primary transition-colors" data-i18n="nav.projects">Proyectos</a>
         <a href="#about" class="hover:text-primary transition-colors" data-i18n="nav.about">Nosotros</a>
@@ -37,6 +48,24 @@
         </button>
       </div>
     </nav>
+    
+    <!-- Menú móvil desplegable -->
+    <div id="mobile-menu" class="hidden fixed top-[72px] left-0 right-0 bg-dark-light z-40 py-4 px-6 border-t border-primary/20 shadow-lg">
+      <div class="flex flex-col gap-4">
+        <a href="#services" class="hover:text-primary transition-colors py-2" data-i18n="nav.services">Servicios</a>
+        <a href="#projects" class="hover:text-primary transition-colors py-2" data-i18n="nav.projects">Proyectos</a>
+        <a href="#about" class="hover:text-primary transition-colors py-2" data-i18n="nav.about">Nosotros</a>
+        <a href="#contact" class="hover:text-primary transition-colors py-2" data-i18n="nav.contact">Contacto</a>
+        <button id="language-switch-mobile" class="flex items-center gap-2 py-2 text-white/80 hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-globe">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span class="font-medium" id="current-lang-mobile">ES</span>
+        </button>
+      </div>
+    </div>
   </header>
 
   <!-- Hero Section -->

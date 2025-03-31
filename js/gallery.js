@@ -160,7 +160,7 @@ function initGalleries() {
               // Verificar si el contenedor tiene elementos de galería
               const galleryItems = galleryEl.querySelectorAll('.gallery-item');
               if (galleryItems.length === 0) {
-                  console.error(`El contenedor #gallery-${projectId} está vacío, no se puede inicializar LightGallery`);
+                  console.log(`El contenedor #gallery-${projectId} está vacío, recreando elementos de galería`);
                   // Intentar recrear los elementos de galería
                   const config = galleryConfig[projectId];
                   const basePath = `img/yacimientos/${config.folder}/`;
@@ -203,7 +203,8 @@ function initGalleries() {
                   animateThumb: true,
                   zoomFromOrigin: true,
                   allowMediaOverlap: false,
-                  toggleThumb: true
+                  toggleThumb: true,
+                  licenseKey: 'development', // Usar 'development' para desarrollo
               });
               
               // Verificar que se haya asignado un lg-uid
@@ -242,7 +243,59 @@ function initGalleries() {
       });
       galleryPromises.push(promise); // Añadir la promesa al array
     } else {
-        console.warn(`Elemento #gallery-${projectId} no encontrado para inicializar.`);
+        console.log(`Elemento #gallery-${projectId} no encontrado. Creando contenedor...`);
+        // Crear el contenedor si no existe
+        const galleryContainer = document.createElement('div');
+        galleryContainer.id = `gallery-${projectId}`;
+        galleryContainer.className = 'hidden-gallery';
+        document.body.appendChild(galleryContainer);
+        
+        // Ahora que existe, intentar inicializarlo
+        const config = galleryConfig[projectId];
+        const basePath = `img/yacimientos/${config.folder}/`;
+        
+        config.images.forEach(image => {
+            const item = document.createElement('a');
+            item.href = `${basePath}${image.src}`;
+            item.className = 'gallery-item';
+            item.setAttribute('data-src', `${basePath}${image.src}`);
+            item.setAttribute('data-sub-html', `<h4>${image.alt}</h4>`);
+            
+            const img = document.createElement('img');
+            img.src = `${basePath}${image.thumb}`;
+            img.alt = image.alt;
+            img.className = 'hidden';
+            
+            item.appendChild(img);
+            galleryContainer.appendChild(item);
+        });
+        
+        console.log(`Creado contenedor #gallery-${projectId} con ${config.images.length} elementos`);
+        
+        // Crear una promesa para la inicialización de este nuevo contenedor
+        const newPromise = new Promise((resolve, reject) => {
+            try {
+                const lgInstance = lightGallery(galleryContainer, {
+                    selector: '.gallery-item',
+                    plugins: [lgZoom, lgThumbnail],
+                    speed: 500,
+                    download: false,
+                    thumbnail: true,
+                    animateThumb: true,
+                    zoomFromOrigin: true,
+                    allowMediaOverlap: false,
+                    toggleThumb: true,
+                    licenseKey: 'development', // Usar 'development' para desarrollo
+                });
+                
+                console.log(`LightGallery inicializada para ${projectId} (nuevo contenedor)`);
+                resolve();
+            } catch (error) {
+                console.error(`Error inicializando LightGallery para ${projectId} (nuevo contenedor):`, error);
+                reject(error);
+            }
+        });
+        galleryPromises.push(newPromise);
     }
   }
 

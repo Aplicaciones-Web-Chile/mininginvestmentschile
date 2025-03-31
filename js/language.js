@@ -11,42 +11,87 @@ class LanguageManager {
   }
 
   async init() {
-    // Cargar traducciones
+    // Inicializar traducciones con valores por defecto inmediatamente
+    // para garantizar que siempre haya algo disponible
+    this.translations = this.getDefaultTranslations();
+    console.log('Traducciones por defecto cargadas inicialmente');
+    
     try {
-      console.log(`Intentando cargar traducciones desde locales/${this.currentLanguage}.json`);
-      const response = await fetch(`locales/${this.currentLanguage}.json`);
+      // Definir la ruta relativa a los archivos de traducción (sin barra inicial)
+      const translationPath = `locales/${this.currentLanguage}.json`;
+      console.log(`Intentando cargar traducciones desde ${translationPath}`);
       
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      // Intentar cargar desde el archivo para actualizar las traducciones por defecto
+      const response = await fetch(translationPath);
+      
+      if (response && response.ok) {
+        const data = await response.json();
+        
+        // Verificar que los datos sean válidos
+        if (data && typeof data === 'object' && Object.keys(data).length > 0) {
+          console.log(`Traducciones actualizadas desde archivo para ${this.currentLanguage}`);
+          this.translations = data;
+        } else {
+          console.warn('El archivo de traducciones no contiene datos válidos, usando traducciones por defecto');
+        }
+      } else {
+        console.warn(`No se pudo cargar el archivo de traducciones (status: ${response ? response.status : 'desconocido'}), usando traducciones por defecto`);
       }
-      
-      this.translations = await response.json();
-      console.log(`Traducciones cargadas correctamente para ${this.currentLanguage}`);
-      
-      // Configurar el botón de cambio de idioma
-      if (this.langButton) {
-        this.langButton.addEventListener('click', () => this.toggleLanguage());
-      }
-      
-      // Actualizar la interfaz con el idioma actual
-      this.updateLanguageDisplay();
-      this.updateDOM();
     } catch (error) {
-      console.error('Error al cargar las traducciones:', error);
-      
-      // Cargar traducciones por defecto si hay un error
-      console.warn('Usando traducciones por defecto en español');
-      this.translations = this.getDefaultTranslations();
-      
-      // Aún así intentar actualizar la interfaz
-      this.updateLanguageDisplay();
-      this.updateDOM();
+      console.warn('Error al intentar cargar traducciones desde archivo, usando traducciones por defecto:', error.message || 'Error desconocido');
+      // Continuamos con las traducciones por defecto ya cargadas
     }
+    
+    // Configurar el botón de cambio de idioma
+    if (this.langButton) {
+      // Eliminar listeners anteriores si existe un handler previo
+      if (this.toggleLanguageHandler) {
+        this.langButton.removeEventListener('click', this.toggleLanguageHandler);
+      }
+      
+      // Crear una función nombrada para poder eliminarla después
+      this.toggleLanguageHandler = () => this.toggleLanguage();
+      
+      // Añadir nuevo listener
+      this.langButton.addEventListener('click', this.toggleLanguageHandler);
+      console.log('Botón de cambio de idioma configurado correctamente');
+    }
+    
+    // Verificar que las traducciones estén disponibles
+    if (!this.translations || Object.keys(this.translations).length === 0) {
+      console.warn('No hay traducciones disponibles, usando traducciones mínimas de emergencia');
+      // Crear un objeto mínimo para evitar errores
+      this.translations = {
+        "nav": {
+          "services": "Servicios",
+          "projects": "Proyectos",
+          "about": "Nosotros",
+          "contact": "Contacto"
+        },
+        "hero": { 
+          "title": "Inversiones Mineras en Chile",
+          "subtitle": "Oportunidades de inversión en proyectos mineros de alto potencial"
+        },
+        "projects": { 
+          "title": "Proyectos Destacados",
+          "requestInfo": "Solicitar Información"
+        },
+        "contact": { 
+          "title": "Contacto",
+          "send": "Enviar Mensaje"
+        }
+      };
+    }
+    
+    // Actualizar la interfaz con el idioma actual
+    this.updateLanguageDisplay();
+    this.updateDOM();
+    console.log('Interfaz actualizada con las traducciones disponibles');
   }
   
   // Traducciones por defecto en caso de error
   getDefaultTranslations() {
-    return {
+    const defaultTranslations = {
       "hero": {
         "title": "Inversiones Mineras en Chile",
         "subtitle": "Oportunidades de inversión en proyectos mineros de alto potencial"
@@ -125,6 +170,9 @@ class LanguageManager {
         "terms": "Términos y Condiciones"
       }
     };
+    console.log('getDefaultTranslations llamado');
+    console.log('Traducciones por defecto:', defaultTranslations);
+    return defaultTranslations;
   }
 
   toggleLanguage() {
@@ -167,7 +215,9 @@ class LanguageManager {
 
   getTranslation(key) {
     // Obtener traducción a partir de una clave anidada (ej: "hero.title")
-    return key.split('.').reduce((obj, i) => obj && obj[i], this.translations);
+    const translation = key.split('.').reduce((obj, i) => obj && obj[i], this.translations);
+    console.log(`getTranslation llamado con clave: ${key}, resultado: ${translation}`);
+    return translation;
   }
 
   updateServices() {
@@ -347,7 +397,7 @@ class LanguageManager {
         projectsGrid.appendChild(projectDiv);
         
         // Restaurar las miniaturas si existían previamente
-        if (projectId && existingThumbnails[projectId]) {
+        if (projectDiv.dataset.projectId && existingThumbnails[projectDiv.dataset.projectId]) {
           const projectContainer = projectDiv.querySelector('.flex-col');
           if (projectContainer) {
             // Buscar el último div (botón) para insertar antes de él
@@ -360,6 +410,7 @@ class LanguageManager {
             console.log(`Restauradas miniaturas para proyecto ${i} (${projectId})`);
           }
         }
+        
       }
     }
 
