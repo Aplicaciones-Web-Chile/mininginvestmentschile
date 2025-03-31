@@ -209,13 +209,27 @@ function initGalleries() {
               // Verificar que se haya asignado un lg-uid
               const newLgUid = galleryEl.getAttribute('lg-uid');
               if (!newLgUid) {
-                  console.error(`No se asignó lg-uid a #gallery-${projectId} después de inicializar`);
-                  // Intentar forzar la asignación de un ID
-                  const randomId = Math.floor(Math.random() * 10000);
-                  galleryEl.setAttribute('lg-uid', randomId);
+                  console.warn(`No se asignó lg-uid a #gallery-${projectId} automáticamente, asignando manualmente`);
+                  
+                  // Forzar la asignación de un ID
+                  // Primero, asegurar que window.lgData exista
                   if (!window.lgData) window.lgData = {};
+                  
+                  // Generar un ID único para esta instancia
+                  const randomId = `manual${Math.floor(Math.random() * 10000)}`;
+                  
+                  // Asignar el ID al elemento y registrar la instancia
+                  galleryEl.setAttribute('lg-uid', randomId);
                   window.lgData[`lg${randomId}`] = lgInstance;
-                  console.warn(`Forzada asignación de lg-uid=${randomId} a #gallery-${projectId}`);
+                  
+                  console.log(`Asignado manualmente lg-uid=${randomId} a #gallery-${projectId}`);
+                  
+                  // Verificar que la instancia esté correctamente registrada
+                  if (window.lgData[`lg${randomId}`]) {
+                      console.log(`Instancia registrada correctamente en window.lgData[lg${randomId}]`);
+                  } else {
+                      console.error(`Fallo al registrar instancia en window.lgData[lg${randomId}]`);
+                  }
               }
                
               console.log(`LightGallery inicializada para ${projectId}. UID: ${galleryEl.getAttribute('lg-uid')}`);

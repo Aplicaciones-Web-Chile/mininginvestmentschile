@@ -13,8 +13,15 @@ class LanguageManager {
   async init() {
     // Cargar traducciones
     try {
+      console.log(`Intentando cargar traducciones desde locales/${this.currentLanguage}.json`);
       const response = await fetch(`locales/${this.currentLanguage}.json`);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
       this.translations = await response.json();
+      console.log(`Traducciones cargadas correctamente para ${this.currentLanguage}`);
       
       // Configurar el botón de cambio de idioma
       if (this.langButton) {
@@ -26,7 +33,98 @@ class LanguageManager {
       this.updateDOM();
     } catch (error) {
       console.error('Error al cargar las traducciones:', error);
+      
+      // Cargar traducciones por defecto si hay un error
+      console.warn('Usando traducciones por defecto en español');
+      this.translations = this.getDefaultTranslations();
+      
+      // Aún así intentar actualizar la interfaz
+      this.updateLanguageDisplay();
+      this.updateDOM();
     }
+  }
+  
+  // Traducciones por defecto en caso de error
+  getDefaultTranslations() {
+    return {
+      "hero": {
+        "title": "Inversiones Mineras en Chile",
+        "subtitle": "Oportunidades de inversión en proyectos mineros de alto potencial"
+      },
+      "services": {
+        "title": "Nuestros Servicios",
+        "service1": "Evaluación de proyectos mineros",
+        "service2": "Estudios geológicos y de factibilidad",
+        "service3": "Asesoría legal y regulatoria",
+        "service4": "Intermediación en compra/venta de proyectos",
+        "service5": "Consultoría especializada en minería"
+      },
+      "projects": {
+        "title": "Proyectos Destacados",
+        "requestInfo": "Solicitar Información",
+        "project1": {
+          "title": "Proyecto Minero Las Carditas",
+          "subtitle": "Cobre - Oro - Plata y Yacimiento de Litio",
+          "location": "Ubicación: Río Hurtado, Región de Coquimbo, Chile",
+          "area": "Superficie: 5456 hectáreas mineras",
+          "concessions": "11 concesiones de exploración con 2656 hectáreas",
+          "exploration": "11 concesiones de exploración con 2800 hectáreas",
+          "reserves": "Reservas estimadas: 34 millones de toneladas (Ley 0.7% CuEq)",
+          "certification": "Certificado NI 43-101",
+          "price": "USD 30,000,000",
+          "image": "img/yacimientos/las-carditas/mina-las-carditas-cobre-chile-vista-01.jpg"
+        },
+        "project2": {
+          "title": "Proyecto Minero Pichasca",
+          "subtitle": "Oro - Cobre - Plata - Cobre Nativo - Mercurio - Zincón",
+          "location": "Ubicación: Provincia de Petorca, Región de Valparaíso, Chile",
+          "area": "Superficie: 4480 hectáreas mineras",
+          "concessions": "6 concesiones mineras de una superficie de 900 hectáreas",
+          "exploration": "22 pertenencias mineras por un total de 4480 hectáreas",
+          "history": "El proyecto fue explotado anteriormente, aún está la planta a la vista",
+          "price": "USD 30,000,000",
+          "image": "img/yacimientos/pichasca/proyecto-minero-pichasca-chile-vista-01.jpg"
+        },
+        "project3": {
+          "title": "Proyecto Minero Tambillo",
+          "subtitle": "Cobre - Oro - Plata",
+          "location": "Ubicación: Provincia de Petorca, Región de Valparaíso, Chile",
+          "area": "Superficie: 700 hectáreas mineras",
+          "concessions": "7 pertenencias de exploración que abarcan 640 hectáreas",
+          "reserves": "Reservas: 38.000 toneladas determinadas, 107.000 toneladas inferidas",
+          "water": "Se dispone de agua encontrada en uno de los sondajes del año 2010",
+          "investment": "ENAMI en 2010 invirtió US$125.000 en sondajes y US$28.000 en desarrollo",
+          "options": "Interés en venta del yacimiento o búsqueda de financiamiento para una planta de 1.200 toneladas/mes",
+          "price": "USD 3,000,000",
+          "image": "img/yacimientos/tambillo/yacimiento-minero-tambillo-chile-vista-06.jpg"
+        }
+      },
+      "about": {
+        "title": "Sobre Nosotros",
+        "content": "Somos una empresa especializada en la intermediación y desarrollo de proyectos mineros en Chile. Con más de 15 años de experiencia en el sector, ofrecemos oportunidades de inversión en proyectos con alto potencial de retorno.",
+        "experience": "15+ años de experiencia",
+        "projects": "30+ proyectos gestionados",
+        "clients": "25+ clientes satisfechos",
+        "countries": "Operaciones en 5 países"
+      },
+      "contact": {
+        "title": "Contacto",
+        "subtitle": "Envíenos un mensaje y nos pondremos en contacto a la brevedad",
+        "name": "Nombre",
+        "email": "Correo electrónico",
+        "subject": "Asunto",
+        "message": "Mensaje",
+        "send": "Enviar Mensaje",
+        "address": "Santiago, Chile",
+        "phone": "+56 9 8760 5326",
+        "emailContact": "contacto@mininginvestmentschile.com"
+      },
+      "footer": {
+        "rights": "Todos los derechos reservados",
+        "privacy": "Política de Privacidad",
+        "terms": "Términos y Condiciones"
+      }
+    };
   }
 
   toggleLanguage() {
