@@ -19,3 +19,7 @@ vendor/
 # Archivos de caché
 .cache/
 .sass-cache/
+#/MATS
+
+# Imágenes originales (no optimizadas)
+img/yacimientos/originales/

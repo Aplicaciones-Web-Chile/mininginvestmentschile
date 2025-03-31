@@ -119,46 +119,112 @@ class LanguageManager {
     projectsGrid.innerHTML = '';
 
     // Crear elementos para cada proyecto
-    for (let i = 1; i <= 2; i++) {
+    for (let i = 1; i <= 3; i++) {
       const projectTitleKey = `projects.project${i}.title`;
-      const projectReservesKey = `projects.project${i}.reserves`;
-      const projectPriceKey = `projects.project${i}.price`;
-      const projectCertificationKey = `projects.project${i}.certification`;
+      const projectSubtitleKey = `projects.project${i}.subtitle`;
+      const projectLocationKey = `projects.project${i}.location`;
       const projectAreaKey = `projects.project${i}.area`;
+      const projectConcessionKey = `projects.project${i}.concessions`;
+      const projectExplorationKey = `projects.project${i}.exploration`;
+      const projectReservesKey = `projects.project${i}.reserves`;
+      const projectCertificationKey = `projects.project${i}.certification`;
+      const projectHistoryKey = `projects.project${i}.history`;
+      const projectWaterKey = `projects.project${i}.water`;
+      const projectInvestmentKey = `projects.project${i}.investment`;
+      const projectOptionsKey = `projects.project${i}.options`;
+      const projectPriceKey = `projects.project${i}.price`;
+      const projectImageKey = `projects.project${i}.image`;
       const requestInfoKey = 'projects.requestInfo';
 
       const projectTitle = this.getTranslation(projectTitleKey);
-      const projectReserves = this.getTranslation(projectReservesKey);
+      const projectSubtitle = this.getTranslation(projectSubtitleKey);
+      const projectLocation = this.getTranslation(projectLocationKey);
+      const projectArea = this.getTranslation(projectAreaKey);
       const projectPrice = this.getTranslation(projectPriceKey);
+      const projectImage = this.getTranslation(projectImageKey);
       const requestInfo = this.getTranslation(requestInfoKey);
       
-      if (projectTitle && projectReserves && projectPrice) {
+      if (projectTitle && projectPrice) {
         const projectDiv = document.createElement('div');
         projectDiv.className = 'bg-dark-light p-8 rounded-lg animate-section';
         
-        let additionalInfo = '';
-        if (i === 1) {
-          const certification = this.getTranslation(projectCertificationKey);
-          if (certification) {
-            additionalInfo = `<p class="text-white/80 mb-2">${certification}</p>`;
-          }
-        } else if (i === 2) {
-          const area = this.getTranslation(projectAreaKey);
-          if (area) {
-            additionalInfo = `<p class="text-white/80 mb-2">${area}</p>`;
-          }
+        // Construir información adicional según el proyecto
+        let projectDetails = '';
+        
+        // Información común para todos los proyectos
+        if (projectSubtitle) {
+          projectDetails += `<p class="text-primary font-medium mb-4">${projectSubtitle}</p>`;
         }
         
-        projectDiv.innerHTML = `
-          <h3 class="text-xl font-semibold mb-4">${projectTitle}</h3>
-          <p class="text-white/80 mb-2">${projectReserves}</p>
-          ${additionalInfo}
-          <p class="text-primary font-semibold mb-4">${projectPrice}</p>
-          <button class="w-full py-2 px-4 bg-primary/10 text-primary border border-primary/20 rounded hover:bg-primary/20 transition-colors">
-            ${requestInfo}
-          </button>
+        if (projectLocation) {
+          projectDetails += `<p class="text-white/80 mb-2">${projectLocation}</p>`;
+        }
+        
+        if (projectArea) {
+          projectDetails += `<p class="text-white/80 mb-2">${projectArea}</p>`;
+        }
+        
+        // Información específica por proyecto
+        const projectConcession = this.getTranslation(projectConcessionKey);
+        if (projectConcession) {
+          projectDetails += `<p class="text-white/80 mb-2">${projectConcession}</p>`;
+        }
+        
+        const projectExploration = this.getTranslation(projectExplorationKey);
+        if (projectExploration) {
+          projectDetails += `<p class="text-white/80 mb-2">${projectExploration}</p>`;
+        }
+        
+        const projectReserves = this.getTranslation(projectReservesKey);
+        if (projectReserves) {
+          projectDetails += `<p class="text-white/80 mb-2">${projectReserves}</p>`;
+        }
+        
+        const projectCertification = this.getTranslation(projectCertificationKey);
+        if (projectCertification) {
+          projectDetails += `<p class="text-white/80 mb-2">${projectCertification}</p>`;
+        }
+        
+        const projectHistory = this.getTranslation(projectHistoryKey);
+        if (projectHistory) {
+          projectDetails += `<p class="text-white/80 mb-2">${projectHistory}</p>`;
+        }
+        
+        const projectWater = this.getTranslation(projectWaterKey);
+        if (projectWater) {
+          projectDetails += `<p class="text-white/80 mb-2">${projectWater}</p>`;
+        }
+        
+        const projectInvestment = this.getTranslation(projectInvestmentKey);
+        if (projectInvestment) {
+          projectDetails += `<p class="text-white/80 mb-2">${projectInvestment}</p>`;
+        }
+        
+        const projectOptions = this.getTranslation(projectOptionsKey);
+        if (projectOptions) {
+          projectDetails += `<p class="text-white/80 mb-2">${projectOptions}</p>`;
+        }
+        
+        // Construir el HTML del proyecto
+        let projectHTML = `
+          <div class="flex flex-col h-full">
+            <div class="mb-4">
+              ${projectImage ? `<img src="${projectImage}" alt="${projectTitle}" class="w-full h-48 object-cover rounded-lg mb-4">` : ''}
+              <h3 class="text-xl font-semibold mb-2">${projectTitle}</h3>
+            </div>
+            <div class="flex-grow">
+              ${projectDetails}
+            </div>
+            <div class="mt-4">
+              <p class="text-primary font-semibold text-lg mb-4">${projectPrice}</p>
+              <button class="w-full py-2 px-4 bg-primary/10 text-primary border border-primary/20 rounded hover:bg-primary/20 transition-colors">
+                ${requestInfo}
+              </button>
+            </div>
+          </div>
         `;
         
+        projectDiv.innerHTML = projectHTML;
         projectsGrid.appendChild(projectDiv);
       }
     }

@@ -22,16 +22,40 @@
     "title": "Proyectos Disponibles",
     "requestInfo": "Solicitar Información",
     "project1": {
-      "title": "Proyecto Cobre-Oro-Plata – Río Hurtado",
-      "reserves": "Reservas estimadas: ~34 millones de toneladas",
-      "certification": "Certificación NI 43-101",
-      "price": "USD 30,000,000"
+      "title": "Proyecto Minero Las Carditas",
+      "subtitle": "Cobre - Oro - Plata y Yacimiento de Litio",
+      "location": "Ubicación: Río Hurtado, Región de Coquimbo, Chile",
+      "area": "Superficie: 5456 hectáreas mineras",
+      "concessions": "13 concesiones de explotación con 2656 hectáreas",
+      "exploration": "11 concesiones de exploración con 2800 hectáreas",
+      "reserves": "Reservas estimadas: 34 millones de toneladas (Ley 1,77% CuEq)",
+      "certification": "Certificado NI 43-101",
+      "price": "USD 30,000,000",
+      "image": "img/yacimientos/las-carditas/mina-las-carditas-cobre-chile-vista-01.jpg"
     },
     "project2": {
-      "title": "Proyecto Oro-Cobre-Plata – Petorca",
-      "area": "700 ha mineras constituidas",
-      "reserves": "Reservas: 38.000 ton determinadas, 107.000 ton inferidas",
-      "price": "USD 3,000,000"
+      "title": "Proyecto Minero Pichasca",
+      "subtitle": "Oro - Cobre - Plata - Cobre Nativo - Mercurio - Zircón",
+      "location": "Ubicación: Provincia de Petorca, Región de Valparaíso, Chile",
+      "area": "Superficie: 4480 hectáreas mineras",
+      "concessions": "6 concesiones mineras de una superficie de 900 hectáreas",
+      "exploration": "22 pertenencias mineras por un total de 4480 hectáreas",
+      "history": "El proyecto fue explotado anteriormente, aún está la planta a la vista",
+      "price": "USD 30,000,000",
+      "image": "img/yacimientos/pichasca/proyecto-minero-pichasca-chile-vista-01.jpg"
+    },
+    "project3": {
+      "title": "Proyecto Minero Tambillo",
+      "subtitle": "Cobre - Oro - Plata",
+      "location": "Ubicación: Provincia de Petorca, Región de Valparaíso, Chile",
+      "area": "Superficie: 700 hectáreas mineras",
+      "concessions": "7 pertenencias de explotación que abarcan 640 hectáreas",
+      "reserves": "Reservas: 38.000 toneladas determinadas, 107.000 toneladas inferidas",
+      "water": "Se dispone de agua encontrada en uno de los sondajes del año 2010",
+      "investment": "ENAMI en 2010 invirtió US$125.000 en sondajes y US$25.000 en desarrollo",
+      "options": "Interés en venta del yacimiento o búsqueda de financiamiento para una planta de 1.200 toneladas/mes",
+      "price": "USD 3,000,000",
+      "image": "img/yacimientos/tambillo/yacimiento-minero-tambillo-chile-vista-06.jpg"
     }
   },
   "about": {

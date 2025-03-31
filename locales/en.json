@@ -22,16 +22,40 @@
     "title": "Available Projects",
     "requestInfo": "Request Information",
     "project1": {
-      "title": "Copper-Gold-Silver Project – Río Hurtado",
-      "reserves": "Estimated reserves: ~34 million tons",
-      "certification": "NI 43-101 Certification",
-      "price": "USD 30,000,000"
+      "title": "Las Carditas Mining Project",
+      "subtitle": "Copper - Gold - Silver and Lithium Deposit",
+      "location": "Location: Río Hurtado, Coquimbo Region, Chile",
+      "area": "Area: 5456 mining hectares",
+      "concessions": "13 exploitation concessions with 2656 hectares",
+      "exploration": "11 exploration concessions with 2800 hectares",
+      "reserves": "Estimated reserves: 34 million tons (Grade 1.77% CuEq)",
+      "certification": "NI 43-101 Certified",
+      "price": "USD 30,000,000",
+      "image": "img/yacimientos/las-carditas/mina-las-carditas-cobre-chile-vista-01.jpg"
     },
     "project2": {
-      "title": "Gold-Copper-Silver Project – Petorca",
-      "area": "700 hectares, legally constituted",
-      "reserves": "Reserves: 38,000 ton proven, 107,000 ton inferred",
-      "price": "USD 3,000,000"
+      "title": "Pichasca Mining Project",
+      "subtitle": "Gold - Copper - Silver - Native Copper - Mercury - Zircon",
+      "location": "Location: Petorca Province, Valparaíso Region, Chile",
+      "area": "Area: 4480 mining hectares",
+      "concessions": "6 mining concessions with a surface of 900 hectares",
+      "exploration": "22 mining properties for a total of 4480 hectares",
+      "history": "The project was previously exploited, the plant is still visible",
+      "price": "USD 30,000,000",
+      "image": "img/yacimientos/pichasca/proyecto-minero-pichasca-chile-vista-01.jpg"
+    },
+    "project3": {
+      "title": "Tambillo Mining Project",
+      "subtitle": "Copper - Gold - Silver",
+      "location": "Location: Petorca Province, Valparaíso Region, Chile",
+      "area": "Area: 700 mining hectares",
+      "concessions": "7 exploitation properties covering 640 hectares",
+      "reserves": "Reserves: 38,000 tons proven, 107,000 tons inferred",
+      "water": "Water available, found in one of the 2010 drill holes",
+      "investment": "ENAMI invested US$125,000 in drilling and US$25,000 in development in 2010",
+      "options": "Interest in selling the deposit or seeking financing for a 1,200 tons/month plant",
+      "price": "USD 3,000,000",
+      "image": "img/yacimientos/tambillo/yacimiento-minero-tambillo-chile-vista-06.jpg"
     }
   },
   "about": {
