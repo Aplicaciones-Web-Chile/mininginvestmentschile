@@ -209,7 +209,9 @@ class LanguageManager {
         let projectHTML = `
           <div class="flex flex-col h-full">
             <div class="mb-4">
-              ${projectImage ? `<img src="${projectImage}" alt="${projectTitle}" class="w-full h-48 object-cover rounded-lg mb-4">` : ''}
+              ${projectImage ? `<div class="project-main-image cursor-pointer" data-project-id="${i}">
+                <img src="${projectImage}" alt="${projectTitle}" class="w-full h-48 object-cover rounded-lg mb-4">
+              </div>` : ''}
               <h3 class="text-xl font-semibold mb-2">${projectTitle}</h3>
             </div>
             <div class="flex-grow">

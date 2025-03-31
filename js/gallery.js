@@ -229,8 +229,56 @@ function initGalleryThumbnails() {
   });
 }
 
+/**
+ * Inicializa los eventos para las imágenes principales de los proyectos
+ */
+function initMainImages() {
+  document.querySelectorAll('.project-main-image').forEach(imageContainer => {
+    const projectId = imageContainer.getAttribute('data-project-id');
+    
+    // Convertir el número del proyecto a su ID correspondiente
+    const projectKeys = Object.keys(galleryConfig);
+    const galleryId = projectKeys[parseInt(projectId) - 1];
+    
+    if (galleryId) {
+      imageContainer.addEventListener('click', () => {
+        // Abrir la galería al hacer clic en la imagen principal
+        const galleryElement = document.getElementById(`gallery-${galleryId}`);
+        if (galleryElement) {
+          // Obtener la instancia de lightGallery
+          const lgInstance = window.lgData[`lg${galleryElement.getAttribute('lg-uid')}`];
+          if (lgInstance) {
+            lgInstance.openGallery(0);
+          } else {
+            // Si la galería aún no se ha inicializado, inicializarla y abrirla
+            const lgInstance = lightGallery(galleryElement, {
+              selector: '.gallery-item',
+              plugins: [lgZoom, lgThumbnail],
+              speed: 500,
+              download: false,
+              thumbnail: true,
+              animateThumb: true,
+              zoomFromOrigin: true,
+              allowMediaOverlap: false,
+              toggleThumb: true,
+              index: 0
+            });
+            
+            // Abrir la galería inmediatamente
+            lgInstance.openGallery(0);
+          }
+        }
+      });
+    }
+  });
+}
+
 // Inicializar galerías cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
   // Esperar a que los proyectos se carguen (se generan dinámicamente)
-  setTimeout(initGalleries, 500);
+  setTimeout(() => {
+    initGalleries();
+    // Inicializar eventos para imágenes principales después de las galerías
+    setTimeout(initMainImages, 100);
+  }, 500);
 });
