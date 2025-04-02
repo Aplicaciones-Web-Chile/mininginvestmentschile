@@ -1,6 +1,6 @@
-# Meza & Pierre - Mining Investment Chile
+# MPSA - Mining Investment Chile
 
-Sitio web estático para Meza & Pierre, una empresa de inversión minera con visión global que conecta proyectos mineros con inversionistas internacionales.
+Sitio web estático para MPSA, una empresa de inversión minera con visión global que conecta proyectos mineros con inversionistas internacionales.
 
 ## Características
 
@@ -83,7 +83,7 @@ Para actualizar el contenido del sitio:
 
 ## Licencia
 
-© Meza & Pierre. Todos los derechos reservados.
+© MPSA. Todos los derechos reservados.
 
 ---
 

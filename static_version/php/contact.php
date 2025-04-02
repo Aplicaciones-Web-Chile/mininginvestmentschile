@@ -9,7 +9,7 @@
 // Configuración
 $config = [
     'recipient_email' => 'patrice@mininginvestmentschile.com',
-    'recipient_name' => 'Meza & Pierre',
+    'recipient_name' => 'MPSA',
     'subject_prefix' => '[Contacto Web] ',
     'success_message' => 'Mensaje enviado correctamente. Nos pondremos en contacto pronto.',
     'error_message' => 'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.'
