@@ -22,7 +22,7 @@
     "title": "Proyectos Disponibles",
     "requestInfo": "Solicitar Información",
     "project1": {
-      "title": "Proyecto Minero Las Carditas",
+      "title": "Proyecto I",
       "subtitle": "Oro - Cobre - Plata - Cobre Nativo - Mercurio - Zircón",
       "location": "Ubicación: Provincia de Petorca, Región de Valparaíso, Chile",
       "area": "Superficie: 4480 hectáreas mineras",
@@ -33,7 +33,7 @@
       "image": "img/yacimientos/las-carditas/mina-las-carditas-cobre-chile-vista-01.jpg"
     },
     "project2": {
-      "title": "Proyecto Minero Pichasca",
+      "title": "Proyecto II",
       "subtitle": "Cobre - Oro - Plata y Yacimiento de Litio",
       "location": "Ubicación: Río Hurtado, Región de Coquimbo, Chile",
       "area": "Superficie: 5456 hectáreas mineras",
@@ -45,7 +45,7 @@
       "image": "img/yacimientos/pichasca/proyecto-minero-pichasca-chile-vista-01.jpg"
     },
     "project3": {
-      "title": "Proyecto Minero Tambillo",
+      "title": "Proyecto III",
       "subtitle": "Cobre - Oro - Plata",
       "location": "Ubicación: Provincia de Petorca, Región de Valparaíso, Chile",
       "area": "Superficie: 700 hectáreas mineras",

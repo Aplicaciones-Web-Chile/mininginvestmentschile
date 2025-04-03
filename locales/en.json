@@ -22,7 +22,7 @@
     "title": "Available Projects",
     "requestInfo": "Request Information",
     "project1": {
-      "title": "Las Carditas Mining Project",
+      "title": "Proyecto I",
       "subtitle": "Gold - Copper - Silver - Native Copper - Mercury - Zircon",
       "location": "Location: Petorca Province, Valparaíso Region, Chile",
       "area": "Area: 4480 mining hectares",
@@ -33,7 +33,7 @@
       "image": "img/yacimientos/las-carditas/mina-las-carditas-cobre-chile-vista-01.jpg"
     },
     "project2": {
-      "title": "Pichasca Mining Project",
+      "title": "Proyecto II",
       "subtitle": "Copper - Gold - Silver and Lithium Deposit",
       "location": "Location: Río Hurtado, Coquimbo Region, Chile",
       "area": "Area: 5456 mining hectares",
@@ -45,7 +45,7 @@
       "image": "img/yacimientos/pichasca/proyecto-minero-pichasca-chile-vista-01.jpg"
     },
     "project3": {
-      "title": "Tambillo Mining Project",
+      "title": "Proyecto III",
       "subtitle": "Copper - Gold - Silver",
       "location": "Location: Petorca Province, Valparaíso Region, Chile",
       "area": "Area: 700 mining hectares",
