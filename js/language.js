@@ -109,6 +109,17 @@ class LanguageManager {
         "requestInfo": "Solicitar Información",
         "project1": {
           "title": "Proyecto Minero Las Carditas",
+          "subtitle": "Oro - Cobre - Plata - Cobre Nativo - Mercurio - Zincón",
+          "location": "Ubicación: Provincia de Petorca, Región de Valparaíso, Chile",
+          "area": "Superficie: 4480 hectáreas mineras",
+          "concessions": "6 concesiones mineras de una superficie de 900 hectáreas",
+          "exploration": "22 pertenencias mineras por un total de 4480 hectáreas",
+          "history": "El proyecto fue explotado anteriormente, aún está la planta a la vista",
+          "price": "USD 30,000,000",
+          "image": "img/yacimientos/las-carditas/mina-las-carditas-cobre-chile-vista-01.jpg"
+        },
+        "project2": {
+          "title": "Proyecto Minero Pichasca",
           "subtitle": "Cobre - Oro - Plata y Yacimiento de Litio",
           "location": "Ubicación: Río Hurtado, Región de Coquimbo, Chile",
           "area": "Superficie: 5456 hectáreas mineras",
@@ -116,17 +127,6 @@ class LanguageManager {
           "exploration": "11 concesiones de exploración con 2800 hectáreas",
           "reserves": "Reservas estimadas: 34 millones de toneladas (Ley 0.7% CuEq)",
           "certification": "Certificado NI 43-101",
-          "price": "USD 30,000,000",
-          "image": "img/yacimientos/las-carditas/mina-las-carditas-cobre-chile-vista-01.jpg"
-        },
-        "project2": {
-          "title": "Proyecto Minero Pichasca",
-          "subtitle": "Oro - Cobre - Plata - Cobre Nativo - Mercurio - Zincón",
-          "location": "Ubicación: Provincia de Petorca, Región de Valparaíso, Chile",
-          "area": "Superficie: 4480 hectáreas mineras",
-          "concessions": "6 concesiones mineras de una superficie de 900 hectáreas",
-          "exploration": "22 pertenencias mineras por un total de 4480 hectáreas",
-          "history": "El proyecto fue explotado anteriormente, aún está la planta a la vista",
           "price": "USD 30,000,000",
           "image": "img/yacimientos/pichasca/proyecto-minero-pichasca-chile-vista-01.jpg"
         },

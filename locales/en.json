@@ -23,6 +23,17 @@
     "requestInfo": "Request Information",
     "project1": {
       "title": "Las Carditas Mining Project",
+      "subtitle": "Gold - Copper - Silver - Native Copper - Mercury - Zircon",
+      "location": "Location: Petorca Province, Valparaíso Region, Chile",
+      "area": "Area: 4480 mining hectares",
+      "concessions": "6 mining concessions with a surface of 900 hectares",
+      "exploration": "22 mining properties for a total of 4480 hectares",
+      "history": "The project was previously exploited, the plant is still visible",
+      "price": "USD 30,000,000",
+      "image": "img/yacimientos/las-carditas/mina-las-carditas-cobre-chile-vista-01.jpg"
+    },
+    "project2": {
+      "title": "Pichasca Mining Project",
       "subtitle": "Copper - Gold - Silver and Lithium Deposit",
       "location": "Location: Río Hurtado, Coquimbo Region, Chile",
       "area": "Area: 5456 mining hectares",
@@ -30,17 +41,6 @@
       "exploration": "11 exploration concessions with 2800 hectares",
       "reserves": "Estimated reserves: 34 million tons (Grade 1.77% CuEq)",
       "certification": "NI 43-101 Certified",
-      "price": "USD 30,000,000",
-      "image": "img/yacimientos/las-carditas/mina-las-carditas-cobre-chile-vista-01.jpg"
-    },
-    "project2": {
-      "title": "Pichasca Mining Project",
-      "subtitle": "Gold - Copper - Silver - Native Copper - Mercury - Zircon",
-      "location": "Location: Petorca Province, Valparaíso Region, Chile",
-      "area": "Area: 4480 mining hectares",
-      "concessions": "6 mining concessions with a surface of 900 hectares",
-      "exploration": "22 mining properties for a total of 4480 hectares",
-      "history": "The project was previously exploited, the plant is still visible",
       "price": "USD 30,000,000",
       "image": "img/yacimientos/pichasca/proyecto-minero-pichasca-chile-vista-01.jpg"
     },
