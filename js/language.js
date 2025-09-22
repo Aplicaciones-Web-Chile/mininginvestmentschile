@@ -15,18 +15,18 @@ class LanguageManager {
     // para garantizar que siempre haya algo disponible
     this.translations = this.getDefaultTranslations();
     console.log('Traducciones por defecto cargadas inicialmente');
-    
+
     try {
       // Definir la ruta relativa a los archivos de traducción (sin barra inicial)
-      const translationPath = `locales/${this.currentLanguage}.json`;
+      const translationPath = `locales/${this.currentLanguage}.json?v=2`;
       console.log(`Intentando cargar traducciones desde ${translationPath}`);
-      
+
       // Intentar cargar desde el archivo para actualizar las traducciones por defecto
       const response = await fetch(translationPath);
-      
+
       if (response && response.ok) {
         const data = await response.json();
-        
+
         // Verificar que los datos sean válidos
         if (data && typeof data === 'object' && Object.keys(data).length > 0) {
           console.log(`Traducciones actualizadas desde archivo para ${this.currentLanguage}`);
@@ -41,22 +41,22 @@ class LanguageManager {
       console.warn('Error al intentar cargar traducciones desde archivo, usando traducciones por defecto:', error.message || 'Error desconocido');
       // Continuamos con las traducciones por defecto ya cargadas
     }
-    
+
     // Configurar el botón de cambio de idioma
     if (this.langButton) {
       // Eliminar listeners anteriores si existe un handler previo
       if (this.toggleLanguageHandler) {
         this.langButton.removeEventListener('click', this.toggleLanguageHandler);
       }
-      
+
       // Crear una función nombrada para poder eliminarla después
       this.toggleLanguageHandler = () => this.toggleLanguage();
-      
+
       // Añadir nuevo listener
       this.langButton.addEventListener('click', this.toggleLanguageHandler);
       console.log('Botón de cambio de idioma configurado correctamente');
     }
-    
+
     // Verificar que las traducciones estén disponibles
     if (!this.translations || Object.keys(this.translations).length === 0) {
       console.warn('No hay traducciones disponibles, usando traducciones mínimas de emergencia');
@@ -68,27 +68,27 @@ class LanguageManager {
           "about": "Nosotros",
           "contact": "Contacto"
         },
-        "hero": { 
+        "hero": {
           "title": "Inversiones Mineras en Chile",
           "subtitle": "Oportunidades de inversión en proyectos mineros de alto potencial"
         },
-        "projects": { 
+        "projects": {
           "title": "Proyectos Destacados",
           "requestInfo": "Solicitar Información"
         },
-        "contact": { 
+        "contact": {
           "title": "Contacto",
           "send": "Enviar Mensaje"
         }
       };
     }
-    
+
     // Actualizar la interfaz con el idioma actual
     this.updateLanguageDisplay();
     this.updateDOM();
     console.log('Interfaz actualizada con las traducciones disponibles');
   }
-  
+
   // Traducciones por defecto en caso de error
   getDefaultTranslations() {
     /*
@@ -183,7 +183,7 @@ class LanguageManager {
   toggleLanguage() {
     this.currentLanguage = this.currentLanguage === 'es' ? 'en' : 'es';
     localStorage.setItem('language', this.currentLanguage);
-    
+
     // Recargar traducciones y actualizar la interfaz
     this.init();
   }
@@ -245,7 +245,7 @@ class LanguageManager {
     for (let i = 1; i <= 5; i++) {
       const serviceKey = `services.service${i}`;
       const serviceText = this.getTranslation(serviceKey);
-      
+
       if (serviceText) {
         const serviceDiv = document.createElement('div');
         serviceDiv.className = 'p-6 bg-dark rounded-lg border border-primary/20 hover:border-primary/40 transition-colors animate-section';
@@ -267,7 +267,7 @@ class LanguageManager {
   updateProjects() {
     const projectsGrid = document.getElementById('projects-grid');
     if (!projectsGrid) return;
-    
+
     // Guardar referencias a las miniaturas existentes antes de limpiar
     const existingThumbnails = {};
     document.querySelectorAll('.gallery-thumbnails').forEach(thumbnails => {
@@ -282,7 +282,7 @@ class LanguageManager {
     projectsGrid.innerHTML = '';
 
     // Crear elementos para cada proyecto
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 4; i++) {
       const projectTitleKey = `projects.project${i}.title`;
       const projectSubtitleKey = `projects.project${i}.subtitle`;
       const projectLocationKey = `projects.project${i}.location`;
@@ -306,68 +306,68 @@ class LanguageManager {
       const projectPrice = this.getTranslation(projectPriceKey);
       const projectImage = this.getTranslation(projectImageKey);
       const requestInfo = this.getTranslation(requestInfoKey);
-      
+
       if (projectTitle && projectPrice) {
         const projectDiv = document.createElement('div');
         projectDiv.className = 'bg-dark-light p-8 rounded-lg animate-section';
-        
+
         // Construir información adicional según el proyecto
         let projectDetails = '';
-        
+
         // Información común para todos los proyectos
         if (projectSubtitle) {
           projectDetails += `<p class="text-primary font-medium mb-4">${projectSubtitle}</p>`;
         }
-        
+
         if (projectLocation) {
           projectDetails += `<p class="text-white/80 mb-2">${projectLocation}</p>`;
         }
-        
+
         if (projectArea) {
           projectDetails += `<p class="text-white/80 mb-2">${projectArea}</p>`;
         }
-        
+
         // Información específica por proyecto
         const projectConcession = this.getTranslation(projectConcessionKey);
         if (projectConcession) {
           projectDetails += `<p class="text-white/80 mb-2">${projectConcession}</p>`;
         }
-        
+
         const projectExploration = this.getTranslation(projectExplorationKey);
         if (projectExploration) {
           projectDetails += `<p class="text-white/80 mb-2">${projectExploration}</p>`;
         }
-        
+
         const projectReserves = this.getTranslation(projectReservesKey);
         if (projectReserves) {
           projectDetails += `<p class="text-white/80 mb-2">${projectReserves}</p>`;
         }
-        
+
         const projectCertification = this.getTranslation(projectCertificationKey);
         if (projectCertification) {
           projectDetails += `<p class="text-white/80 mb-2">${projectCertification}</p>`;
         }
-        
+
         const projectHistory = this.getTranslation(projectHistoryKey);
         if (projectHistory) {
           projectDetails += `<p class="text-white/80 mb-2">${projectHistory}</p>`;
         }
-        
+
         const projectWater = this.getTranslation(projectWaterKey);
         if (projectWater) {
           projectDetails += `<p class="text-white/80 mb-2">${projectWater}</p>`;
         }
-        
+
         const projectInvestment = this.getTranslation(projectInvestmentKey);
         if (projectInvestment) {
           projectDetails += `<p class="text-white/80 mb-2">${projectInvestment}</p>`;
         }
-        
+
         const projectOptions = this.getTranslation(projectOptionsKey);
         if (projectOptions) {
           projectDetails += `<p class="text-white/80 mb-2">${projectOptions}</p>`;
         }
-        
+
         // Construir el HTML del proyecto
         let projectHTML = `
           <div class="flex flex-col h-full">
@@ -397,10 +397,10 @@ class LanguageManager {
             </div>
           </div>
         `;
-        
+
         projectDiv.innerHTML = projectHTML;
         projectsGrid.appendChild(projectDiv);
-        
+
         // Restaurar las miniaturas si existían previamente
         if (projectDiv.dataset.projectId && existingThumbnails[projectDiv.dataset.projectId]) {
           const projectContainer = projectDiv.querySelector('.flex-col');
@@ -415,7 +415,7 @@ class LanguageManager {
             console.log(`Restauradas miniaturas para proyecto ${i} (${projectId})`);
           }
         }
-        
+
       }
     }
 
@@ -423,29 +423,29 @@ class LanguageManager {
     setTimeout(() => {
       const projectElements = projectsGrid.querySelectorAll('.animate-section');
       window.animateWithDelay(projectElements, 200);
-      
+
       // Añadir funcionalidad a los botones de solicitar información
       document.querySelectorAll('.request-info-btn').forEach(button => {
         button.addEventListener('click', (e) => {
           const projectName = button.getAttribute('data-project');
           const contactSection = document.getElementById('contact');
-          
+
           // Desplazarse a la sección de contacto
           if (contactSection) {
             contactSection.scrollIntoView({ behavior: 'smooth' });
-            
+
             // Si hay un campo de asunto, prellenarlo
             const subjectField = document.querySelector('input[name="subject"], textarea[name="subject"]');
             if (subjectField) {
               subjectField.value = `Solicitud de información: ${projectName}`;
             }
-            
+
             // Si hay un campo de mensaje, añadir texto predeterminado
             const messageField = document.querySelector('textarea[name="message"]');
             if (messageField) {
               messageField.value = `Hola, me gustaría recibir más información sobre el proyecto ${projectName}.`;
             }
-            
+
             // Enfocar el primer campo del formulario
             const firstInput = contactSection.querySelector('input, textarea');
             if (firstInput) {
@@ -454,7 +454,7 @@ class LanguageManager {
           }
         });
       });
-      
+
       // Reinicializar las galerías y sus listeners después de actualizar los proyectos
       // Esto es crucial para que las imágenes sean clickeables después de cambiar el idioma
       console.log('Llamando a reinitializeGalleryListeners desde language.js');
