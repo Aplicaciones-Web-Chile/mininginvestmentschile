@@ -22,7 +22,7 @@
     "title": "Available Projects",
     "requestInfo": "Request Information",
     "project1": {
-      "title": "Proyecto I",
+      "title": "Project I",
       "subtitle": "Gold - Copper - Silver - Native Copper - Mercury - Zircon",
       "location": "Location: Petorca Province, Valparaíso Region, Chile",
       "area": "Area: 4480 mining hectares",
@@ -33,7 +33,7 @@
       "image": "img/yacimientos/las-carditas/mina-las-carditas-cobre-chile-vista-01.jpg"
     },
     "project2": {
-      "title": "Proyecto II",
+      "title": "Project II",
       "subtitle": "Copper - Gold - Silver and Lithium Deposit",
       "location": "Location: Río Hurtado, Coquimbo Region, Chile",
       "area": "Area: 5456 mining hectares",
@@ -45,7 +45,7 @@
       "image": "img/yacimientos/pichasca/proyecto-minero-pichasca-chile-vista-01.jpg"
     },
     "project3": {
-      "title": "Proyecto III",
+      "title": "Project III",
       "subtitle": "Copper - Gold - Silver",
       "location": "Location: Petorca Province, Valparaíso Region, Chile",
       "area": "Area: 700 mining hectares",
@@ -56,6 +56,16 @@
       "options": "Interest in selling the deposit or seeking financing for a 1,200 tons/month plant",
       "price": "USD 3,000,000",
       "image": "img/yacimientos/tambillo/yacimiento-minero-tambillo-chile-vista-06.jpg"
+    },
+    "project4": {
+      "title": "Project IV",
+      "subtitle": "Gold",
+      "location": "Location: Elqui Province, Coquimbo Region, Chile",
+      "area": "Area: 40 mining hectares",
+      "concessions": "11 exploitation concessions",
+      "reserves": "Reserves: 459,000 tons proven",
+      "history": "8.0G/T (Average)",
+      "price": "USD 4,000,000"
     }
   },
   "about": {

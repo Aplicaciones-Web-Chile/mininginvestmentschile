@@ -56,6 +56,16 @@
       "options": "Interés en venta del yacimiento o búsqueda de financiamiento para una planta de 1.200 toneladas/mes",
       "price": "USD 3,000,000",
       "image": "img/yacimientos/tambillo/yacimiento-minero-tambillo-chile-vista-06.jpg"
+    },
+    "project4": {
+      "title": "Proyecto IV",
+      "subtitle": "Oro",
+      "location": "Ubicación: Provincia de Elqui, Región de Coquimbo, Chile",
+      "area": "Superficie: 40 hectáreas mineras",
+      "concessions": "11 concesiones de explotación",
+      "reserves": "Reservas: 459.000 toneladas determinadas",
+      "history": "8.0G/T (Promedio)",
+      "price": "USD 4,000,000"
     }
   },
   "about": {
