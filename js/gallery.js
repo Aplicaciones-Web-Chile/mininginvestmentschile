@@ -183,12 +183,15 @@ function initGalleries() {
               item.href = `${basePath}${image.src}`;
               item.className = 'gallery-item';
               item.setAttribute('data-src', `${basePath}${image.src}`);
+              item.setAttribute('data-thumb', `${basePath}thumbs/${image.thumb}`);
               item.setAttribute('data-sub-html', `<h4>${image.alt}</h4>`);
 
               const img = document.createElement('img');
-              img.src = `${basePath}${image.thumb}`;
+              img.src = `${basePath}thumbs/${image.thumb}`;
               img.alt = image.alt;
               img.className = 'hidden';
+              img.loading = 'lazy';
+              img.decoding = 'async';
 
               item.appendChild(img);
               galleryEl.appendChild(item);
@@ -272,12 +275,15 @@ function initGalleries() {
         item.href = `${basePath}${image.src}`;
         item.className = 'gallery-item';
         item.setAttribute('data-src', `${basePath}${image.src}`);
+        item.setAttribute('data-thumb', `${basePath}thumbs/${image.thumb}`);
         item.setAttribute('data-sub-html', `<h4>${image.alt}</h4>`);
 
         const img = document.createElement('img');
-        img.src = `${basePath}${image.thumb}`;
+        img.src = `${basePath}thumbs/${image.thumb}`;
         img.alt = image.alt;
         img.className = 'hidden';
+        img.loading = 'lazy';
+        img.decoding = 'async';
 
         item.appendChild(img);
         galleryContainer.appendChild(item);
@@ -551,12 +557,15 @@ function createGalleryForProject(projectCard, projectId) {
       item.href = `${basePath}${image.src}`;
       item.className = 'gallery-item';
       item.setAttribute('data-src', `${basePath}${image.src}`);
+      item.setAttribute('data-thumb', `${basePath}thumbs/${image.thumb}`);
       item.setAttribute('data-sub-html', `<h4>${image.alt}</h4>`);
 
       const img = document.createElement('img');
-      img.src = `${basePath}${image.thumb}`;
+      img.src = `${basePath}thumbs/${image.thumb}`;
       img.alt = image.alt;
       img.className = 'hidden';
+      img.loading = 'lazy';
+      img.decoding = 'async';
 
       item.appendChild(img);
       galleryContainer.appendChild(item);
@@ -584,7 +593,7 @@ function createGalleryForProject(projectCard, projectId) {
   config.images.slice(0, 4).forEach((image, index) => {
     const thumbnail = document.createElement('div');
     thumbnail.className = 'gallery-thumbnail relative cursor-pointer overflow-hidden rounded-lg h-20';
-    thumbnail.style.backgroundImage = `url(${basePath}${image.thumb})`;
+    thumbnail.style.backgroundImage = `url(${basePath}thumbs/${image.thumb})`;
     thumbnail.style.backgroundSize = 'cover';
     thumbnail.style.backgroundPosition = 'center';
 

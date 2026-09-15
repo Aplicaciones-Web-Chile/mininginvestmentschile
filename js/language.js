@@ -373,7 +373,7 @@ class LanguageManager {
           <div class="flex flex-col h-full">
             <div class="mb-4">
               ${projectImage ? `<div class="project-main-image cursor-pointer" data-project-id="${i}">
-                <img src="${projectImage}" alt="${projectTitle}" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.onerror=null; this.src='img/pexels-apasaric-1238864.jpg';">
+                <img src="${projectImage}" alt="${projectTitle}" loading="lazy" decoding="async" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.onerror=null; this.src='img/pexels-apasaric-1238864.jpg';">
               </div>` : ''}
               <h3 class="text-xl font-semibold mb-2">${projectTitle}</h3>
             </div>
