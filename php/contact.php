@@ -63,8 +63,9 @@ if (!isValidEmail($email)) {
 
 // Preparar el correo electrónico
 $subject = $config['subject_prefix'] . 'Mensaje de ' . $name;
+$senderEmail = 'contacto@mininginvestmentschile.com';
 $headers = [
-    'From' => $email,
+    'From' => "{$name} <{$senderEmail}>",
     'Reply-To' => $email,
     'X-Mailer' => 'PHP/' . phpversion(),
     'Content-Type' => 'text/html; charset=UTF-8'
@@ -105,8 +106,8 @@ $emailBody = "
 
 // Intentar enviar el correo
 try {
-    // Usar mail() para entornos cPanel
-    $mailSent = mail(
+    // Usar mail() con sender envelope (-f)
+    $mailSent = @mail(
         $config['recipient_email'],
         $subject,
         $emailBody,
@@ -114,7 +115,8 @@ try {
             function ($v, $k) { return "$k: $v"; },
             $headers,
             array_keys($headers)
-        ))
+        )),
+        "-f {$senderEmail}"
     );
     
     if ($mailSent) {
